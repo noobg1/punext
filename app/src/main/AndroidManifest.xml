@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Subactivity"
+            android:label="@string/title_activity_subactivity" >
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value="com.noobsquare.beta.punext.MainActivity"/>
+        </activity>
     </application>
 
 </manifest>

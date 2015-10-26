@@ -1,18 +1,40 @@
 package com.noobsquare.beta.punext;
 
+import android.support.v4.app.NavUtils.*;
+import android.content.Intent;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.app.Fragment;
+import android.widget.Toast;
+import android.widget.Toolbar;
 
 
-public class MainActivity extends ActionBarActivity {
+
+
+public class MainActivity extends AppCompatActivity {
+
+    private android.support.v7.widget.Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_appbar);
+
+        toolbar = (android.support.v7.widget.Toolbar)findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        NavigationDrawerFragment drawerFragment = (NavigationDrawerFragment)
+               getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
+
+        drawerFragment.setup(R.id.fragment_navigation_drawer,(DrawerLayout)findViewById(R.id.drawer_layout),toolbar);
     }
+
+
 
 
     @Override
@@ -31,7 +53,12 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(this,"hey yo hit"+item.getTitle(),Toast.LENGTH_LONG).show();
             return true;
+        }
+
+        if(id==R.id.navigate){
+            startActivity(new Intent(this,Subactivity.class));
         }
 
         return super.onOptionsItemSelected(item);
