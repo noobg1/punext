@@ -1,16 +1,38 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fragment_navigation_drawer"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<org.lucasr.dspec.DesignSpecFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
-    android:background="#212121"
-    tools:context="com.noobsquare.beta.punext.NavigationDrawerFragment">
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:designSpec="@raw/spec">
 
-    <ImageView
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/fragment_navigation_drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#212121"
+        tools:context="com.noobsquare.beta.punext.NavigationDrawerFragment">
 
-        android:layout_width="280dp"
-        android:layout_height="150dp"
-        android:src="@drawable/drawer3"/>
+        <LinearLayout
+            android:id="@+id/containerDrawerImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+
+                android:layout_width="280dp"
+                android:layout_height="150dp"
+                android:src="@drawable/drawer3" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/drawerList"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_below="@id/containerDrawerImage"/>
 
 
-</RelativeLayout>
+
+
+    </RelativeLayout>
+
+</org.lucasr.dspec.DesignSpecFrameLayout>
