@@ -6,24 +6,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true">
 
-    <RelativeLayout
+    <linearlayout
         android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
+        android:orientation="vertical"
         tools:context=".MainActivity">
 
         <include
             android:id="@+id/app_bar"
             layout="@layout/app_bar" />
+        <com.noobsquare.beta.punext.tabs.SlidingTabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tabs">
+        </com.noobsquare.beta.punext.tabs.SlidingTabLayout>
 
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        </android.support.v4.view.ViewPager>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/app_bar"
             android:text="@string/hello_world" />
 
-    </RelativeLayout>
+    </linearlayout>
     <fragment
        android:id="@+id/fragment_navigation_drawer"
         android:layout_width="280dp"
